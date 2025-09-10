@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santuário Digital: Fé e Conexão Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+            padding-top: 5rem; /* Ajuste para o header fixo */
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 900px;
+            width: 100%;
+            padding: 3rem;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .card {
+            background-color: #f3f4f6;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: #111827;
+        }
+        
+        @media (max-width: 640px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        .verse {
+            font-style: italic;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .reflection {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #6b7280;
+            margin-top: 1rem;
+        }
+
+        .button {
+            transition: all 0.3s ease;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-primary {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .button-secondary {
+            background-color: transparent;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .message-box {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3b82f6;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            text-align: center;
+        }
+        
+        .message-box.show {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="messageBox" class="message-box"></div>
+
+    <!-- Barra de Navegação Superior -->
+    <header class="py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-2xl font-bold text-gray-900">
+            Santuário Digital
+        </div>
+        <nav class="hidden md:block">
+            <ul class="flex space-x-8 text-gray-600">
+                <!-- Links para as novas páginas -->
+                <li><a href="index.html" class="hover:text-blue-500 transition duration-300">Home</a></li>
+                <li><a href="contato.html" class="hover:text-blue-500 transition duration-300">Contato</a></li>
+                <li><a href="localizacao.html" class="hover:text-blue-500 transition duration-300">Localização</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Seção: Devocional Diário -->
+        <section id="devocional" class="card">
+            <h1 class="section-title">Devocional Diário</h1>
+            <div id="devotional-content">
+                <p class="verse">"Porque onde estiverem dois ou três reunidos em meu nome, ali estou no meio deles."</p>
+                <p class="reflection">
+                    A presença de Deus não está restrita a templos físicos, mas manifesta-se onde corações se unem em fé. O Santuário Digital é esse espaço sagrado na internet, um lugar para nos conectarmos uns aos outros e, principalmente, com o divino. Que este versículo nos lembre da força da nossa união e da constante presença de Cristo em nossas vidas e em nossa comunidade online.
+                </p>
+            </div>
+            <button
+                id="shareDevotionalButton"
+                class="button button-secondary mt-8 inline-block"
+            >
+                Compartilhar no WhatsApp
+            </button>
+        </section>
+
+        <!-- Seção: Pedido de Oração -->
+        <section id="oracao" class="card">
+            <h2 class="section-title">Pedido de Oração</h2>
+            <p class="mb-6 text-gray-500">
+                Compartilhe sua fé e seu coração. Se há algo que pesa em sua alma, confie a nós. Nossa comunidade se unirá em oração por você.
+            </p>
+            <textarea
+                id="prayerRequest"
+                class="w-full h-32 p-4 text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300"
+                placeholder="Digite seu pedido de oração aqui..."
+            ></textarea>
+            <button
+                id="sendPrayerButton"
+                class="button button-primary mt-6 w-full sm:w-auto"
+            >
+                Enviar Pedido via WhatsApp
+            </button>
+        </section>
+    </main>
+
+    <script>
+        function showMessage(text) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = text;
+            messageBox.classList.add('show');
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 3000);
+        }
+
+        document.getElementById('sendPrayerButton').addEventListener('click', () => {
+            const phoneNumber = '556135915071';
+            const prayerRequest = document.getElementById('prayerRequest').value;
+
+            if (prayerRequest.trim() === '') {
+                showMessage('Por favor, digite seu pedido de oração.');
+                return;
+            }
+
+            const message = `Olá, Santuário Digital! Gostaria de fazer o seguinte pedido de oração:\n\n"${prayerRequest}"\n\nAmém.`;
+            const encodedMessage = encodeURIComponent(message);
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        document.getElementById('shareDevotionalButton').addEventListener('click', () => {
+            const verse = document.querySelector('#devotional-content .verse').textContent;
+            const reflection = document.querySelector('#devotional-content .reflection').textContent;
+
+            const shareText = `*Santuário Digital: Devocional de Hoje*\n\n"${verse}"\n\nReflexão: ${reflection}\n\n*Clique e confira: https://www.seusite.com/`;
+            const encodedShareText = encodeURIComponent(shareText);
+
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedShareText}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
