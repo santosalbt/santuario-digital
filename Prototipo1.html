@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santuário Digital: Fé e Conexão Online</title>
+    <style>
+        /* Reset básico e paleta */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e6eafc 0%, #fafdfe 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            scroll-behavior: smooth;
+        }
+        .main-container {
+            width: 95%;
+            max-width: 500px;
+            background: #ffffffcc;
+            border-radius: 25px;
+            box-shadow: 0 8px 24px 0 #3b77d900, 0 1.5px 10px 0 #e0e9f8;
+            padding: 2.5rem 2rem;
+            margin: 2rem auto;
+            backdrop-filter: blur(4px);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #3159a4;
+            margin-bottom: 0.7rem;
+        }
+        header p {
+            color: #6370a1;
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .box {
+            background: #f6fafdcc;
+            border-radius: 16px;
+            box-shadow: 0 1px 8px #eaf2ff;
+            padding: 1.5rem 1.2rem;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.2s;
+        }
+        .box:hover {
+            box-shadow: 0 4px 18px #bad0f8;
+        }
+        .devocional-title {
+            font-size: 1.5rem;
+            color: #244673;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+        }
+        .devocional-bible {
+            font-style: italic;
+            color: #3159a4;
+            margin-bottom: 0.6rem;
+            font-size: 1.13rem;
+        }
+        .devocional-reflexao {
+            color: #44557a;
+            margin-bottom: 0.7rem;
+            font-size: 1.08rem;
+        }
+        .pedido-titulo {
+            font-size: 1.3rem;
+            color: #23456a;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        textarea {
+            width: 100%;
+            min-height: 90px;
+            border: 1px solid #d3d9ec;
+            border-radius: 8px;
+            font-size: 1rem;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            resize: vertical;
+            background-color: #fff;
+            color: #244673;
+        }
+        button {
+            background: linear-gradient(90deg, #7ac0fe, #5186e6);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-size: 1.08rem;
+            padding: 0.75rem 1.7rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #5186e6, #7ac0fe);
+        }
+        @media (max-width: 600px) {
+            .main-container {
+                padding: 1.2rem 0.4rem;
+                max-width: 100%;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h1>Santuário Digital: Fé e Conexão Online</h1>
+            <p>Desfrute de um espaço sagrado para renovar sua fé e encontrar apoio espiritual, onde e quando quiser.</p>
+        </header>
+
+        <section class="section">
+            <div class="box">
+                <div class="devocional-title">Devocional Diário</div>
+                <div class="devocional-bible">“O Senhor é meu pastor, nada me faltará.” — Salmo 23:1</div>
+                <div class="devocional-reflexao">
+                    Lembre-se de que Deus cuida de cada detalhe da sua vida. Confie e entregue seus caminhos àquele que conhece seus sonhos e desafios.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="box">
+                <div class="pedido-titulo">Pedido de Oração</div>
+                <textarea id="pedido" maxlength="400" placeholder="Digite aqui seu pedido de oração..."></textarea>
+                <button onclick="enviarPedido()">Enviar pelo WhatsApp</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function enviarPedido() {
+            const texto = document.getElementById('pedido').value.trim();
+            if (!texto) {
+                alert('Por favor, digite seu pedido de oração.');
+                return;
+            }
+            // Substitua pelo número do WhatsApp desejado (apenas números com DDD e país, ex: 5521999998888)
+            const numero = '5511000000000';
+            const msg = encodeURIComponent('Olá! Gostaria de enviar este pedido de oração:\n\n' + texto);
+            window.open('https://wa.me/' + numero + '?text=' + msg, '_blank');
+        }
+    </script>
+</body>
+</html>
